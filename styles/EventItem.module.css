@@ -16,9 +16,3 @@
   filter: sepia(90);
   transition: all 0.3s ease-in-out;
 }
-
-.exploreLink {
-  display: inline-block;
-  margin: 5px 0;
-  color: coral;
-}

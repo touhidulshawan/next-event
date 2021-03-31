@@ -3,6 +3,10 @@
   min-height: 75px;
   padding: 0.5rem 0.3rem;
   background: rgb(248, 244, 247);
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 9999;
 }
 
 .ul {

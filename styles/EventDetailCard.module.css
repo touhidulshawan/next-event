@@ -1,0 +1,32 @@
+.container {
+  padding: 20px 10px;
+}
+
+.headerContent {
+}
+.headerContent > h1 {
+  padding: 0;
+  margin: 4px 0;
+  color: rgb(2, 2, 2);
+}
+.featured {
+  background: yellow;
+  padding: 2px 5px;
+}
+.description {
+  color: #222;
+  line-height: 1.8rem;
+}
+
+.footerContent {
+}
+
+.date {
+  font-weight: bold;
+  color: rgb(90, 87, 87);
+}
+
+.address {
+  color: rgb(90, 40, 105);
+  font-style: normal;
+}
