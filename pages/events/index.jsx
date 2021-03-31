@@ -1,11 +1,13 @@
+import EventList from "@components/events/EventList";
 import Layout from "@components/Layout";
+import { getAllEvents } from "../../dummy-data";
 
 const EventsPage = () => {
+  const allEvents = getAllEvents();
+
   return (
     <Layout>
-      <div>
-        <h1>All Events shows here</h1>
-      </div>
+      <EventList items={allEvents} />
     </Layout>
   );
 };
