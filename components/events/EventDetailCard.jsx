@@ -3,6 +3,7 @@ import styles from "@styles/EventDetailCard.module.css";
 
 const EventDetailCard = (props) => {
   const { date, description, image, isFeatured, location, title } = props;
+  console.log(isFeatured);
   return (
     <div className={styles.container}>
       <div className={styles.imgContainer}>
