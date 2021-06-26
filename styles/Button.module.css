@@ -5,6 +5,7 @@
   display: inline-block;
   margin: 15px 0px;
   outline: 4px solid rgb(54, 4, 172);
+  cursor: pointer;
   border: 2px solid rgb(54, 4, 172);
   transition: all 0.2s ease-in;
 }

@@ -9,7 +9,6 @@ const EventDetailPage = () => {
   const event = getEventById(eventID);
 
   if (!event) return <p>404: Event not found</p>;
-  console.log(event);
   return (
     <Layout>
       <EventDetailCard
@@ -18,7 +17,7 @@ const EventDetailPage = () => {
         location={event.location}
         title={event.title}
         description={event.description}
-        isFeatured={event.description}
+        isFeatured={event.isFeatured}
       />
     </Layout>
   );
