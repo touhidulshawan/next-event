@@ -1,0 +1,58 @@
+.form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin: 10px auto;
+  width: 50%;
+}
+
+.email__container,
+.name__container {
+  display: flex;
+  flex-direction: column;
+}
+
+.email__container > label,
+.name__container > label,
+.comment__container > label {
+  margin-bottom: 10px;
+  font-size: 15px;
+  color: #475569;
+  font-weight: bold;
+}
+
+.email__container > input,
+.name__container > input {
+  padding: 10px 25px;
+  background: #e5e7eb;
+  color: #1f2937;
+  outline: none;
+  border: 2px solid #1e293b;
+  font-size: medium;
+}
+
+.comment__container {
+  grid-column: 1/3;
+  display: flex;
+  flex-direction: column;
+}
+
+.comment__container > textarea {
+  border: 2px solid #1e293b;
+  padding: 10px;
+  resize: none;
+  background: #e5e7eb;
+  font-size: 16px;
+  color: #1f2937;
+}
+
+.submit__btn {
+  padding: 15px 20px;
+  font-size: medium;
+  font-weight: bold;
+  text-transform: uppercase;
+  background: #111827;
+  color: #d1d5db;
+  border: 2px solid #1f2937;
+  cursor: pointer;
+}

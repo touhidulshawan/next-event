@@ -1,7 +1,7 @@
-import Layout from "@components/Layout";
+import Layout from "../../components/Layout";
 import { useRouter } from "next/router";
 import { getEventById } from "../../dummy-data";
-import EventDetailCard from "@components/events/EventDetailCard";
+import EventDetailCard from "../../components/events/EventDetailCard";
 
 const EventDetailPage = () => {
   const router = useRouter();

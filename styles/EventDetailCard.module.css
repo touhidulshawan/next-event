@@ -1,5 +1,7 @@
 .container {
   padding: 20px 10px;
+  width: 75%;
+  margin: 0 auto;
 }
 
 .headerContent {
@@ -29,4 +31,10 @@
 .address {
   color: rgb(90, 40, 105);
   font-style: normal;
+}
+
+.commentForm {
+  background: #d1d5db;
+  width: 100vw;
+  padding: 20px;
 }
