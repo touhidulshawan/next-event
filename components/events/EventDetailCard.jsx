@@ -1,7 +1,6 @@
 import Image from "next/image";
 import styles from "../../styles/EventDetailCard.module.css";
 import CommentForm from "../comments/CommentForm";
-import Comments from "../comments/Comments";
 
 const EventDetailCard = (props) => {
   const { date, description, image, isFeatured, location, title } = props;
@@ -31,10 +30,19 @@ const EventDetailCard = (props) => {
       <div className={styles.commentForm}>
         <CommentForm />
       </div>
-      <div className={styles.comments__container}>
-        <Comments />
-        <Comments />
-      </div>
+      {/* <div className={styles.comments__container}>
+        {comments.length === 0 ? (
+          <p>No comments found</p>
+        ) : (
+          comments.map((comment) => (
+            <Comment
+              key={comment.id}
+              name={comment.name}
+              comment={comment.comment}
+            />
+          ))
+        )}
+      </div> */}
     </div>
   );
 };

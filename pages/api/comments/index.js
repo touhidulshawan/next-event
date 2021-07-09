@@ -1,6 +1,12 @@
 import fs from "fs";
 import { CommentsDataPath, ExtractData } from "../../../utils/Utils";
 
+export const getCommentData = () => {
+  const filePath = CommentsDataPath();
+  const data = ExtractData(filePath);
+  return data;
+};
+
 const handler = (req, res) => {
   if (req.method === "POST") {
     const filePath = CommentsDataPath();

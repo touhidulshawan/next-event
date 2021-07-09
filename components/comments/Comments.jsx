@@ -1,10 +1,10 @@
 import styles from "../../styles/Comments.module.css";
 
-const Comments = () => {
+const Comments = ({ name, comment }) => {
   return (
     <div className={styles.container}>
-      <h4 className={styles.name}>Touhidul Shawan</h4>
-      <p className={styles.comment}>This is a test comment</p>
+      <h4 className={styles.name}>{name}</h4>
+      <p className={styles.comment}>{comment}</p>
     </div>
   );
 };
