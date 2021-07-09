@@ -1,6 +1,7 @@
 import Image from "next/image";
 import styles from "../../styles/EventDetailCard.module.css";
-import CommentForm from "../commentForm/CommentForm";
+import CommentForm from "../comments/CommentForm";
+import Comments from "../comments/Comments";
 
 const EventDetailCard = (props) => {
   const { date, description, image, isFeatured, location, title } = props;
@@ -29,6 +30,10 @@ const EventDetailCard = (props) => {
       </div>
       <div className={styles.commentForm}>
         <CommentForm />
+      </div>
+      <div className={styles.comments__container}>
+        <Comments />
+        <Comments />
       </div>
     </div>
   );

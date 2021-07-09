@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+  margin: 20px auto;
+  padding: 13px 20px;
+}
+
+.comment {
+  color: #292524;
+}
+
+.name {
+  color: #57534e;
+  text-transform: uppercase;
+  font-size: medium;
+  margin-bottom: 10px;
+  letter-spacing: 0.08rem;
+}
