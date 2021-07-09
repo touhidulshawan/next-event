@@ -29,6 +29,7 @@ const NewsLetter = () => {
         name="email"
         id="email"
         placeholder="your email address..."
+        required
         value={email}
         onChange={(evt) => setEmail(evt.target.value)}
       />
