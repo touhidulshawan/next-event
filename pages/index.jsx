@@ -1,6 +1,6 @@
-import EventList from "@components/events/EventList";
-import Layout from "@components/Layout";
-import NewsLetter from "@components/newsletter/NewsLetter";
+import EventList from "../components/events/EventList";
+import Layout from "../components/Layout";
+import NewsLetter from "../components/newsletter/NewsLetter";
 import { getFeaturedEvents } from "../dummy-data";
 
 const Home = ({ featuredEvent }) => {

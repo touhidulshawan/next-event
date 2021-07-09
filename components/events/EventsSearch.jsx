@@ -1,6 +1,6 @@
-import Button from "@components/ui/Button";
-import styles from "@styles/EventsSearch.module.css";
 import { useState } from "react";
+import Button from "../ui/Button";
+import styles from "../../styles/EventsSearch.module.css";
 
 const EventsSearch = (props) => {
   const [year, setYear] = useState("2020");

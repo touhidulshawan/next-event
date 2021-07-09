@@ -1,7 +1,7 @@
-import Layout from "@components/Layout";
+import Layout from "../../components/Layout";
 import { getFilteredEvents } from "../../dummy-data";
 import { useRouter } from "next/router";
-import EventList from "@components/events/EventList";
+import EventList from "../../components/events/EventList";
 
 const FilteredEventPage = () => {
   const router = useRouter();

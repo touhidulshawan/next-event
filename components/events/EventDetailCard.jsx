@@ -1,5 +1,5 @@
 import Image from "next/image";
-import styles from "@styles/EventDetailCard.module.css";
+import styles from "../../styles/EventDetailCard.module.css";
 
 const EventDetailCard = (props) => {
   const { date, description, image, isFeatured, location, title } = props;
