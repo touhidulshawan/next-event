@@ -11,7 +11,7 @@ const handler = (req, res) => {
       email: req.body.email,
     };
     data.push(newNewsLetterData);
-    fs.writeFileSync(filePath, data);
+    fs.writeFileSync(filePath, JSON.stringify(data));
   }
 };
 
