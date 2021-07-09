@@ -6,8 +6,26 @@ const CommentForm = () => {
   const [name, setName] = useState("");
   const [comment, setComment] = useState("");
 
+  const handleSubmit = async (evt) => {
+    evt.preventDefault();
+
+    const reqBody = { email, name, comment };
+
+    const res = await fetch("/api/comments", {
+      method: "POST",
+      body: JSON.stringify(reqBody),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (!res.status) {
+      alert("Something wrong! Please try again");
+    }
+  };
+
   return (
-    <form className={styles.form}>
+    <form className={styles.form} onSubmit={handleSubmit}>
       <div className={styles.email__container}>
         <label htmlFor="email">Email</label>
         <input
