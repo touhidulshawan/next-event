@@ -14,6 +14,7 @@ const Home = ({ featuredEvent }) => {
 
 export async function getStaticProps() {
   const featuredEvent = getFeaturedEvents();
+
   return {
     props: {
       featuredEvent,
