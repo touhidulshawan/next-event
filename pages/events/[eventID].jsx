@@ -18,6 +18,7 @@ const EventDetailPage = () => {
         title={event.title}
         description={event.description}
         isFeatured={event.isFeatured}
+        eventID={eventID}
       />
     </Layout>
   );

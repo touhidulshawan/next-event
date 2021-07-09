@@ -1,12 +1,20 @@
+import { useState } from "react";
 import Image from "next/image";
 import styles from "../../styles/EventDetailCard.module.css";
 import CommentForm from "../comments/CommentForm";
+import Comments from "../comments/Comments";
 
 const EventDetailCard = (props) => {
-  const { date, description, image, isFeatured, location, title } = props;
+  const { date, description, image, isFeatured, location, title, eventID } =
+    props;
+  const [toggleComments, setToogleComments] = useState(false);
+
+  const handleToggleComments = () => {
+    setToogleComments((prevState) => !prevState);
+  };
 
   return (
-    <div>
+    <>
       <div className={styles.container}>
         <div className={styles.imgContainer}>
           <Image src={"/" + image} alt={title} width={200} height={200} />
@@ -27,23 +35,21 @@ const EventDetailCard = (props) => {
           </div>
         </div>
       </div>
-      <div className={styles.commentForm}>
-        <CommentForm />
-      </div>
-      {/* <div className={styles.comments__container}>
-        {comments.length === 0 ? (
-          <p>No comments found</p>
-        ) : (
-          comments.map((comment) => (
-            <Comment
-              key={comment.id}
-              name={comment.name}
-              comment={comment.comment}
-            />
-          ))
-        )}
-      </div> */}
-    </div>
+      <button
+        className={styles.showComments__btn}
+        onClick={handleToggleComments}
+      >
+        Show Comments
+      </button>
+      {toggleComments && (
+        <div className={styles.commentForm}>
+          <CommentForm eventID={eventID} />
+        </div>
+      )}
+      {toggleComments && (
+        <Comments eventID={eventID} showComments={toggleComments} />
+      )}
+    </>
   );
 };
 

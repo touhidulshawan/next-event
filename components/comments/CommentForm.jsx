@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styles from "../../styles/CommentForm.module.css";
 
-const CommentForm = () => {
+const CommentForm = ({ eventID }) => {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [comment, setComment] = useState("");
@@ -11,7 +11,7 @@ const CommentForm = () => {
 
     const reqBody = { email, name, comment };
 
-    const res = await fetch("/api/comments", {
+    const res = await fetch(`/api/comments/${eventID}`, {
       method: "POST",
       body: JSON.stringify(reqBody),
       headers: {
@@ -22,6 +22,9 @@ const CommentForm = () => {
     if (!res.status) {
       alert("Something wrong! Please try again");
     }
+    setEmail("");
+    setName("");
+    setComment("");
   };
 
   return (

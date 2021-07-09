@@ -5,8 +5,8 @@ export const NewLetterDataPath = () => {
   return path.join(process.cwd(), "data", "NewsLetterEmail.json");
 };
 
-export const CommentsDataPath = () => {
-  return path.join(process.cwd(), "data", "CommentsData.json");
+export const CommentsDataPath = (eventID) => {
+  return path.join(process.cwd(), "data", `${eventID}Data.json`);
 };
 
 export const ExtractData = (filePath) => {
