@@ -1,0 +1,30 @@
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 400px;
+  margin: 20px 0;
+}
+
+.form > input[type="email"] {
+  width: 100%;
+  padding: 10px 25px;
+  background: #f5f5f4;
+  color: #155e75;
+  outline: none;
+  border: 2px solid #0891b2;
+  font-size: 17px;
+}
+
+.form > button {
+  padding: 10px 25px;
+  text-transform: uppercase;
+  font-size: 17px;
+  cursor: pointer;
+  background: #155e75;
+  color: #cffafe;
+  outline: none;
+  border: 2px solid #0891b2;
+  border-radius: 5px;
+}
