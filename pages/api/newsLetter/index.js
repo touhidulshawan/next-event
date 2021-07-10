@@ -12,7 +12,7 @@ const handler = async (req, res) => {
     const client = await Connection();
     const db = client.db();
 
-    await db.collection("emails").insertOne({ email });
+    await db.collection("newsLetters").insertOne({ email });
     client.close();
 
     res.status(201).send({ message: "email created" });
