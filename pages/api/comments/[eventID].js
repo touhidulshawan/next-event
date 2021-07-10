@@ -35,6 +35,7 @@ const handler = async (req, res) => {
         .sort({ _id: -1 })
         .toArray();
       res.status(200).json({ comments: documents });
+      client.close();
     } catch (error) {
       res.status(404).send({ message: "Data not found" });
     }

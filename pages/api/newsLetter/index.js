@@ -1,6 +1,9 @@
 import { Connection } from "../db/Connection";
 
 const handler = async (req, res) => {
+  const client = await Connection();
+  const db = client.db();
+
   if (req.method === "POST") {
     const email = req.body.email;
 
@@ -8,9 +11,6 @@ const handler = async (req, res) => {
       res.status(422).json({ message: "Invalid Email Address" });
       return;
     }
-
-    const client = await Connection();
-    const db = client.db();
 
     await db.collection("newsLetters").insertOne({ email });
     client.close();
