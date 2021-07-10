@@ -16,7 +16,7 @@ const Comments = ({ eventID, showComments }) => {
   if (loading) {
     return <p>Loading comments...</p>;
   }
-  if (!comments) {
+  if (comments.length === 0) {
     return <p className={styles.alert}>No comments found</p>;
   }
   return (
