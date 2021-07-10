@@ -14,11 +14,10 @@ const NewsLetter = () => {
         "Content-Type": "application/json",
       },
     });
-    if (res.status === 201) {
-      alert("Subscribed to our Newsletter");
-    } else {
-      alert("Something gone wrong! Please try again.");
-    }
+
+    const { message } = await res.json();
+    alert(message);
+
     setEmail("");
   };
 

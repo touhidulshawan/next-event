@@ -1,7 +1,13 @@
 import { Connection } from "../db/Connection";
 
 const handler = async (req, res) => {
-  const client = await Connection();
+  let client;
+  try {
+    client = await Connection();
+  } catch (error) {
+    res.status(500).json({ message: "Connecting to database failed!" });
+    return;
+  }
   const db = client.db();
 
   if (req.method === "POST") {
@@ -12,10 +18,15 @@ const handler = async (req, res) => {
       return;
     }
 
-    await db.collection("newsLetters").insertOne({ email });
-    client.close();
+    try {
+      await db.collection("newsLetters").insertOne({ email });
+      client.close();
+    } catch (error) {
+      res.status(500).json({ message: "NewLetters subscription failed!" });
+      return;
+    }
 
-    res.status(201).send({ message: "email created" });
+    res.status(201).json({ message: "Thanks for subscribe our NewsLetter" });
   }
 };
 
