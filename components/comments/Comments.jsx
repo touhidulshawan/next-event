@@ -22,7 +22,7 @@ const Comments = ({ eventID, showComments }) => {
   return (
     <div className={styles.comments__container}>
       {comments.map((c) => (
-        <div className={styles.wrapper} key={c.id}>
+        <div className={styles.wrapper} key={c._id}>
           <h4 className={styles.name}>{c.name}</h4>
           <p className={styles.comment}>{c.comment}</p>
         </div>

@@ -2,6 +2,8 @@ import { Connection } from "../db/Connection";
 
 const handler = async (req, res) => {
   const eventID = req.query.eventID;
+  const client = await Connection();
+  const db = client.db();
 
   if (req.method === "POST") {
     const { email, name, comment } = req.body;
@@ -20,9 +22,6 @@ const handler = async (req, res) => {
 
     const newComment = { email, name, comment, eventID };
 
-    const client = await Connection();
-    const db = client.db();
-
     await db.collection("comments").insertOne(newComment);
     res.status(201).json({ message: "New comment created" });
     client.close();
@@ -30,14 +29,12 @@ const handler = async (req, res) => {
 
   if (req.method === "GET") {
     try {
-      const filePath = CommentsDataPath(eventID);
-      let data = null;
-      if (fs.existsSync(filePath)) {
-        const data = ExtractData(filePath);
-        res.status(200).json({ comments: data });
-      } else {
-        res.status(404).json({ comments: undefined });
-      }
+      const documents = await db
+        .collection("comments")
+        .find({ eventID: eventID })
+        .sort({ _id: -1 })
+        .toArray();
+      res.status(200).json({ comments: documents });
     } catch (error) {
       res.status(404).send({ message: "Data not found" });
     }
