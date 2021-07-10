@@ -1,29 +1,31 @@
-import fs from "fs";
-import { CommentsDataPath, ExtractData } from "../../../utils/Utils";
+import { Connection } from "../db/Connection";
 
-const handler = (req, res) => {
+const handler = async (req, res) => {
   const eventID = req.query.eventID;
+
   if (req.method === "POST") {
-    try {
-      const filePath = CommentsDataPath(eventID);
-      let data = [];
+    const { email, name, comment } = req.body;
 
-      if (fs.existsSync(filePath)) {
-        data = ExtractData(filePath);
-      }
-
-      const newComment = {
-        id: new Date().toISOString(),
-        email: req.body.email,
-        name: req.body.name,
-        comment: req.body.comment,
-      };
-      data.push(newComment);
-      fs.writeFileSync(filePath, JSON.stringify(data));
-      res.status(201).send({ message: "New comment created" });
-    } catch (error) {
-      res.status(406).send({ message: "Data not valid" });
+    if (
+      !email ||
+      !email.includes("@") ||
+      !name ||
+      name.trim() === "" ||
+      !comment ||
+      comment.trim() === ""
+    ) {
+      res.status(422).json({ message: "Invalid Input" });
+      return;
     }
+
+    const newComment = { email, name, comment, eventID };
+
+    const client = await Connection();
+    const db = client.db();
+
+    await db.collection("comments").insertOne(newComment);
+    res.status(201).json({ message: "New comment created" });
+    client.close();
   }
 
   if (req.method === "GET") {
